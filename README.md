@@ -20,7 +20,7 @@ NPM
 Follow these steps to install and set up the project:
 
 ```bash
-git clone https://github.com/yourusername/ecommerce-frontend.git
+git clone https://github.com/CuencaOscar/ecommerce-frontend.git
 cd ecommerce-frontend
 npm install
 ```
@@ -51,7 +51,6 @@ npm run build
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/yourusername/ecommerce-frontend/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
