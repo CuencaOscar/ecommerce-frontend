@@ -70,3 +70,32 @@
   color: #b91c1c;
   background: rgba(239, 68, 68, 0.15);
 }
+
+.product-card__add {
+  margin-top: 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.product-card__add:hover:not(:disabled) {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.product-card__add:disabled {
+  border-color: var(--border-color);
+  color: var(--muted-color);
+  cursor: default;
+}
+
+.product-card__error {
+  margin: 8px 0 0;
+  color: #dc2626;
+  font-size: 13px;
+}

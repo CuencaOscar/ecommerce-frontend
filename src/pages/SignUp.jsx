@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignIn/SignIn.css';
 import Button from '../components/Button/Button';
+import { useAuth } from '../context/AuthContext';
 
 const MIN_PASSWORD_LENGTH = 8;
 
 function SignUp() {
+  const { signUp } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,13 +16,13 @@ function SignUp() {
     confirmPassword: '',
   });
   const [error, setError] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password.length < MIN_PASSWORD_LENGTH) {
       setError(`The password needs at least ${MIN_PASSWORD_LENGTH} characters.`);
@@ -29,8 +33,15 @@ function SignUp() {
       return;
     }
     setError('');
-    // Registration will call the accounts endpoint once it exists in ecommerce-backend.
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      await signUp(formData);
+      navigate('/', { replace: true });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -78,12 +89,12 @@ function SignUp() {
           />
         </div>
         {error && <p className="form-error" role="alert">{error}</p>}
-        <Button type="submit">Create account</Button>
-        {submitted && (
-          <p className="form-note" role="status">
-            Accounts are not connected yet: the backend currently exposes the catalog only.
-          </p>
-        )}
+        <Button type="submit">{submitting ? 'Creating account…' : 'Create account'}</Button>
+        <p className="form-note">
+          Already have an account?
+          {' '}
+          <Link to="/sign-in">Sign in</Link>
+        </p>
       </form>
     </div>
   );

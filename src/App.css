@@ -94,3 +94,42 @@ body {
 main {
   padding: 32px;
 }
+
+.nav-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-badge {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.nav-user {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.nav-link-button {
+  border: none;
+  background: none;
+  color: var(--muted-color);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-link-button:hover {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
+}

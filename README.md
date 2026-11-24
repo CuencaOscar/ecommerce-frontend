@@ -1,7 +1,7 @@
 # E-commerce Frontend 🛍️
 
-Web client for an online store built with **React** and **React Router**. It provides the application shell,
-authentication screens and a light/dark theme, and is designed to consume the
+**Shopfront**, the web client of an online store built with **React** and **React Router**. Customers browse the
+catalog, create an account, fill a cart and place orders against the
 [ecommerce-backend](https://github.com/CuencaOscar/ecommerce-backend) REST API.
 
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
@@ -10,15 +10,20 @@ authentication screens and a light/dark theme, and is designed to consume the
 
 ![Catalog in light and dark theme, served by the ecommerce-backend API](docs/catalog-themes.png)
 
+![Cart and order confirmation](docs/cart-orders.png)
+
 ## Features
 
-- Product catalog loaded from the ecommerce-backend API, with loading skeletons, error + retry and empty states.
-- Sign-in and sign-up forms with client-side validation.
-- Light/dark theme that follows the system preference, with a manual toggle (`ThemeContext`).
-- Reusable, prop-typed components (`Button`, `ProductCard`) and a `useProducts` data hook.
+- **Catalog** loaded from the API, with loading skeletons, error + retry and empty states.
+- **Accounts:** sign-up and sign-in against the backend with JWT; the session is restored on reload and the access
+  token is refreshed automatically when it expires.
+- **Cart:** add products from the catalog, change quantities within the available stock, remove items; the cart
+  lives on the server, so it follows the user across devices.
+- **Checkout and order history** with a confirmation message after placing an order.
+- Protected routes (`/cart`, `/orders`) that send the user to sign in and back.
+- Light/dark theme that follows the system preference, with a manual toggle.
 - Environment-specific configuration through `.env.development`, `.env.test` and `.env.production`
   (`REACT_APP_API_URL`).
-- Scalable folder layout: components, pages, context, hooks, services and utils.
 
 ## Getting started
 
@@ -37,18 +42,18 @@ npm test
 ```
 src/
 ├── components/    # Button, ProductCard
-├── context/       # ThemeContext (system preference + toggle)
+├── context/       # ThemeContext, AuthContext (JWT session), CartContext (server cart)
 ├── hooks/         # useProducts
-├── pages/         # Home (catalog), SignIn, SignUp
-├── services/      # API client
-├── utils/
-├── App.jsx        # Routes and layout
+├── pages/         # Home (catalog), SignIn, SignUp, Cart, Orders
+├── services/      # API client with token refresh, products
+├── utils/         # Price and date formatting
+├── App.jsx        # Layout, routes and protected routes
 └── index.jsx
 ```
 
 ## Roadmap
 
-Accounts API integration, cart and checkout.
+Online payment and product images.
 
 ## License
 
