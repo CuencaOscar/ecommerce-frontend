@@ -4,6 +4,7 @@
 catalog, create an account, fill a cart and place orders against the
 [ecommerce-backend](https://github.com/CuencaOscar/ecommerce-backend) REST API.
 
+![CI](https://github.com/CuencaOscar/ecommerce-frontend/actions/workflows/ci.yml/badge.svg)
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
@@ -34,8 +35,11 @@ Requirements: Node.js 18+ and a running [ecommerce-backend](https://github.com/C
 npm install
 npm start          # http://localhost:3000
 npm run build      # production build
-npm test
+npm test           # Jest + React Testing Library
 ```
+
+Tests cover the API client (token refresh and error messages), the product card and the cart. CI runs them and a
+production build on every push.
 
 ## Project structure
 
