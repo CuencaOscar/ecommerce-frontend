@@ -1,13 +1,19 @@
-/* Estilos globales en App.css */
 :root {
-  --background-color: #fff; /* Color de fondo para el tema claro */
-  --text-color: #000; /* Color de texto para el tema claro */
+  --background-color: #f6f7fb;
+  --surface-color: #ffffff;
+  --text-color: #111827;
+  --muted-color: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #2563eb;
 }
 
-/* Establece estilos para el tema oscuro directamente en el body usando una clase */
 body.dark {
-  --background-color: #333; /* Color de fondo para el tema oscuro */
-  --text-color: #fff; /* Color de texto para el tema oscuro */
+  --background-color: #0f1115;
+  --surface-color: #171a21;
+  --text-color: #f3f4f6;
+  --muted-color: #9ca3af;
+  --border-color: #2a2f3a;
+  --accent-color: #60a5fa;
 }
 
 body {
@@ -18,29 +24,73 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color); /* Usa la variable CSS para el color de fondo */
-  color: var(--text-color); /* Usa la variable CSS para el color de texto */
-  height: 100vh; /* Asegúrate de que el body ocupe toda la altura de la ventana */
-  width: 100vw; /* Asegúrate de que el body ocupe toda la anchura de la ventana */
-  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .App {
-  min-height: 100vh; /* Asegúrate de que .App ocupe toda la altura de la ventana */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-header, main {
-  padding: 20px;
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 32px;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-nav ul {
-  list-style-type: none;
-  padding: 0;
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-right: auto;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 20px;
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar nav a {
+  color: var(--muted-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topbar nav a.active,
+.topbar nav a:hover {
+  color: var(--text-color);
+}
+
+.topbar nav a.nav-cta {
+  color: #fff;
+  background: var(--accent-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+main {
+  padding: 32px;
 }
