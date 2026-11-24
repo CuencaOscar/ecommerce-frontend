@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './SignIn.css';
 import Button from '../../components/Button/Button';
 import { useAuth } from '../../context/AuthContext';
+import { IS_DEMO } from '../../services/api';
+import { DEMO_ACCOUNT } from '../../services/demoApi';
 
 function SignIn() {
   const { signIn } = useAuth();
@@ -60,6 +62,15 @@ function SignIn() {
         </div>
         {error && <p className="form-error" role="alert">{error}</p>}
         <Button type="submit">{submitting ? 'Signing in…' : 'Sign in'}</Button>
+        {IS_DEMO && (
+          <button
+            type="button"
+            className="demo-fill"
+            onClick={() => setFormData({ email: DEMO_ACCOUNT.email, password: DEMO_ACCOUNT.password })}
+          >
+            Use the demo account
+          </button>
+        )}
         <p className="form-note">
           New here?
           {' '}

@@ -1,4 +1,11 @@
+import demoFetch from './demoApi';
+
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+
+/** The GitHub Pages build runs against an in-browser copy of the API (see demoApi.js). */
+export const IS_DEMO = process.env.REACT_APP_DEMO === 'true';
+
+const http = (path, init) => (IS_DEMO ? demoFetch(path, init) : fetch(`${API_URL}${path}`, init));
 const TOKENS_KEY = 'shopfront.tokens';
 
 export const tokenStore = {
@@ -38,7 +45,7 @@ function messageFrom(data, status) {
 async function refreshAccessToken() {
   const tokens = tokenStore.get();
   if (!tokens?.refresh) return null;
-  const response = await fetch(`${API_URL}/auth/token/refresh/`, {
+  const response = await http('/auth/token/refresh/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ refresh: tokens.refresh }),
@@ -61,7 +68,7 @@ export async function request(path, { method = 'GET', body, auth = true } = {}, 
   const access = auth ? tokenStore.get()?.access : null;
   if (access) headers.Authorization = `Bearer ${access}`;
 
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await http(path, {
     method,
     headers,
     body: body === undefined ? undefined : JSON.stringify(body),

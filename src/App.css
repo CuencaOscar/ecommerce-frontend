@@ -133,3 +133,17 @@ main {
 a {
   color: var(--accent-color);
 }
+
+.demo-banner {
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--muted-color);
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.demo-banner a {
+  color: var(--accent-color);
+}

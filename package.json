@@ -16,6 +16,7 @@
   "scripts": {
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
+    "build:demo": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_DEMO=true PUBLIC_URL=/ecommerce-frontend react-scripts build && node -e \"require('fs').copyFileSync('build/index.html','build/404.html')\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

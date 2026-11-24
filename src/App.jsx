@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useTheme } from './context/ThemeContext';
 import { useAuth } from './context/AuthContext';
 import { useCart } from './context/CartContext';
+import { IS_DEMO } from './services/api';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp';
@@ -71,8 +72,15 @@ function App() {
   }, [theme]);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className={`App ${theme}`}>
+        {IS_DEMO && (
+          <p className="demo-banner">
+            Live demo: the API runs in your browser and data is saved only on this device.
+            {' '}
+            <a href="https://github.com/CuencaOscar/ecommerce-backend">See the Django backend</a>
+          </p>
+        )}
         <TopBar />
         <main>
           <Routes>
