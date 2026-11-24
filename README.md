@@ -4,8 +4,8 @@ Web client for an online store built with **React** and **React Router**. It pro
 authentication screens and a light/dark theme, and is designed to consume the
 [ecommerce-backend](https://github.com/CuencaOscar/ecommerce-backend) REST API.
 
-![React](https://img.shields.io/badge/React_18-61DAFB?logo=react&logoColor=black)
-![React Router](https://img.shields.io/badge/React_Router_6-CA4245?logo=reactrouter&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
 
 ## Features
