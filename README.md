@@ -1,67 +1,49 @@
-# Ecommerce-Frontend
+# E-commerce Frontend 🛍️
 
-This project is an ecommerce frontend application developed with React. It utilizes modern web development technologies to provide a rich and fluid user experience.
+Web client for an online store built with **React** and **React Router**. It provides the application shell,
+authentication screens and a light/dark theme, and is designed to consume the
+[ecommerce-backend](https://github.com/CuencaOscar/ecommerce-backend) REST API.
 
-## Getting Started
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router-6-CA4245?logo=reactrouter&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## Features
 
-### Prerequisites
+- Client-side routing for Home, Sign In and Sign Up.
+- Light/dark theme with a React Context (`ThemeContext`) and a memoized provider.
+- Reusable, prop-typed components (`Button`) and controlled forms.
+- Environment-specific configuration through `.env.development`, `.env.test` and `.env.production`
+  (`REACT_APP_API_URL`).
+- Scalable folder layout: components, pages, context, hooks, services and utils.
 
-What you need to install the software and how to install them:
+## Getting started
+
+Requirements: Node.js 18+.
 
 ```bash
-Node.js
-NPM
-```
-
-### Installation
-
-Follow these steps to install and set up the project:
-
-```bash
-git clone https://github.com/CuencaOscar/ecommerce-frontend.git
-cd ecommerce-frontend
 npm install
+npm start          # http://localhost:3000
+npm run build      # production build
+npm test
 ```
 
-## Usage
+## Project structure
 
-To run the project in development mode:
-
-```bash
-npm start
+```
+src/
+├── components/    # Reusable UI (Button)
+├── context/       # ThemeContext
+├── pages/         # Home, SignIn, SignUp
+├── hooks/  services/  utils/
+├── App.jsx        # Routes and layout
+└── index.jsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Roadmap
 
-## Deployment
+Product catalog connected to the API, cart and checkout.
 
-Instructions to compile the project for production:
+---
 
-```bash
-npm run build
-```
-
-## Built With
-
-- [React](https://reactjs.org/) - The web framework used
-- [Create React App](https://github.com/facebook/create-react-app) - Used to bootstrap the project
-- [ESLint](https://eslint.org/) - Linting tool for identifying and reporting on patterns
-
-## Contributing
-
-
-## Authors
-
-- **Oscar Cuenca** - *Project Creator and Lead Developer* - [CuencaOscar](https://github.com/CuencaOscar)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+**Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
