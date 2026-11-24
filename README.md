@@ -8,6 +8,8 @@ authentication screens and a light/dark theme, and is designed to consume the
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
 
+![Sign-in screen in light and dark theme](docs/sign-in-themes.png)
+
 ## Features
 
 - Client-side routing for Home, Sign In and Sign Up.
