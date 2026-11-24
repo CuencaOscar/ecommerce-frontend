@@ -46,6 +46,6 @@ src/
 
 Product catalog connected to the API, cart and checkout.
 
----
+## License
 
-**Oscar Cuenca** · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
+[MIT](LICENSE) © Oscar Cuenca · [LinkedIn](https://www.linkedin.com/in/ocuenca-moreno/)
