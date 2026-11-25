@@ -14,7 +14,7 @@ add products and place an order. The GitHub Pages build swaps the HTTP calls for
 ([`demoApi.js`](src/services/demoApi.js)) with the same endpoints, status codes and validation as the Django backend,
 storing data only in your browser.
 
-<p align="center"><img src="docs/demo.gif" alt="Signing in with the demo account, adding products, checking out and switching to the dark theme" width="860"></p>
+<p align="center"><img src="docs/demo-v2.gif" alt="Signing in with the demo account, adding products, checking out and switching to the dark theme" width="860"></p>
 
 ## Features
 
@@ -31,7 +31,7 @@ storing data only in your browser.
 
 ## Light and dark theme
 
-![Catalog in light and dark theme, served by the ecommerce-backend API](docs/catalog-themes.png)
+![Catalog in light and dark theme, served by the ecommerce-backend API](docs/catalog-themes-v2.png)
 
 ## Getting started
 
