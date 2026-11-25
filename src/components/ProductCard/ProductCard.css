@@ -127,7 +127,8 @@
   transform: scale(0.98);
 }
 
-.product-card__add.is-added {
+.product-card__add.is-added,
+.product-card__add.is-added:hover {
   background: var(--success-color);
   color: #fff;
 }
