@@ -5,25 +5,30 @@
  * without a server and every visitor gets an isolated store.
  */
 
-const DB_KEY = 'shopfront.demo.db';
+const DB_KEY = 'shopfront.demo.v2';
 
 export const DEMO_ACCOUNT = { email: 'demo@shopfront.dev', password: 'demo-pass-2026', name: 'Demo Customer' };
 
+// Same catalog as `seed_products` in ecommerce-backend. Photos from Unsplash (https://unsplash.com/license).
+const photo = (id) => `https://images.unsplash.com/${id}?w=800&h=600&fit=crop&auto=format&q=80`;
+
 const SEED_PRODUCTS = [
-  ['Wireless Headphones', 'Over-ear, active noise cancelling, 30-hour battery.', '129.90', 25],
-  ['Mechanical Keyboard', 'Hot-swappable switches and per-key RGB backlight.', '89.50', 40],
-  ['USB-C Hub', '7-in-1 with 4K HDMI and 100 W power delivery.', '45.00', 60],
-  ['Smartwatch', 'Heart-rate and GPS tracking, water resistant.', '199.00', 15],
-  ['Portable SSD 1 TB', 'USB 3.2 Gen 2, up to 1,050 MB/s.', '109.99', 0],
-  ['Webcam 1080p', 'Autofocus, dual microphones and privacy shutter.', '59.90', 32],
+  ['Wireless Headphones', 'Over-ear, active noise cancelling, 30-hour battery.', '129.90', 25, 'photo-1546435770-a3e426bf472b'],
+  ['Mechanical Keyboard', 'Hot-swappable switches and per-key RGB backlight.', '89.50', 40, 'photo-1589578228447-e1a4e481c6c8'],
+  ['USB-C Hub', '7-in-1 with 4K HDMI and 100 W power delivery.', '45.00', 60, 'photo-1616578273577-5d54546f4dec'],
+  ['Smartwatch', 'Heart-rate and GPS tracking, water resistant.', '199.00', 15, 'photo-1579586337278-3befd40fd17a'],
+  ['Portable SSD 1 TB', 'USB 3.2 Gen 2, up to 1,050 MB/s.', '109.99', 0, 'photo-1577538926210-fc6cc624fde2'],
+  ['Webcam 1080p', 'Autofocus, dual microphones and privacy shutter.', '59.90', 32, 'photo-1623949556303-b0d17d198863'],
+  ['Wireless Mouse', 'Silent clicks, 4,000 DPI sensor and USB-C charging.', '34.90', 50, 'photo-1658070429465-848c0796abf3'],
+  ['Bluetooth Speaker', 'Compact, water resistant, 12 hours of playback.', '49.00', 8, 'photo-1547052178-7f2c5a20c332'],
 ];
 
 function seed() {
   const createdAt = new Date().toISOString();
   return {
     nextId: { user: 2, cartItem: 1, order: 1 },
-    products: SEED_PRODUCTS.map(([name, description, price, stock], i) => ({
-      id: i + 1, name, description, price, stock, created_at: createdAt,
+    products: SEED_PRODUCTS.map(([name, description, price, stock, photoId], i) => ({
+      id: i + 1, name, description, price, stock, image_url: photo(photoId), created_at: createdAt,
     })),
     users: [{ id: 1, ...DEMO_ACCOUNT, email: DEMO_ACCOUNT.email }],
     cartItems: [],

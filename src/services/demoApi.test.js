@@ -18,7 +18,8 @@ beforeEach(() => localStorage.clear());
 test('serves the seeded catalog without authentication', async () => {
   const { status, data } = await call('/products/');
   expect(status).toBe(200);
-  expect(data).toHaveLength(6);
+  expect(data).toHaveLength(8);
+  expect(data.every((p) => p.image_url.startsWith('https://images.unsplash.com/'))).toBe(true);
   expect(data[0]).toMatchObject({ id: 1, name: 'Wireless Headphones', price: '129.90' });
 });
 

@@ -7,6 +7,7 @@ import { useTheme } from './context/ThemeContext';
 import { useAuth } from './context/AuthContext';
 import { useCart } from './context/CartContext';
 import { IS_DEMO } from './services/api';
+import { BagIcon, MoonIcon, SunIcon } from './components/Icons';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp';
@@ -32,13 +33,17 @@ function TopBar() {
 
   return (
     <header className="topbar">
-      <Link to="/" className="brand">Shopfront</Link>
+      <Link to="/" className="brand">
+        <span className="brand__mark"><BagIcon size={18} /></span>
+        Shopfront
+      </Link>
       <nav>
         <NavLink to="/" end>Catalog</NavLink>
         {user ? (
           <>
             <NavLink to="/orders">Orders</NavLink>
             <NavLink to="/cart" className="nav-cart">
+              <BagIcon size={18} />
               Cart
               {count > 0 && <span className="nav-badge">{count}</span>}
             </NavLink>
@@ -58,7 +63,7 @@ function TopBar() {
         onClick={toggleTheme}
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
       >
-        {theme === 'dark' ? '☀' : '☾'}
+        {theme === 'dark' ? <SunIcon size={18} /> : <MoonIcon size={18} />}
       </button>
     </header>
   );
@@ -91,6 +96,15 @@ function App() {
             <Route path="/orders" element={<RequireAuth><Orders /></RequireAuth>} />
           </Routes>
         </main>
+        <footer className="site-footer">
+          Shopfront · React front end for the
+          {' '}
+          <a href="https://github.com/CuencaOscar/ecommerce-backend">Django REST backend</a>
+          {' · '}
+          Product photos from
+          {' '}
+          <a href="https://unsplash.com">Unsplash</a>
+        </footer>
       </div>
     </Router>
   );

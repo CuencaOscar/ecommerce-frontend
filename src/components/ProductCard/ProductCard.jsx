@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 import { formatPrice } from '../../utils/format';
+import ProductImage from '../ProductImage';
+import { BagIcon } from '../Icons';
 import './ProductCard.css';
 
 function ProductCard({ product }) {
@@ -13,6 +15,7 @@ function ProductCard({ product }) {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
   const inStock = product.stock > 0;
+  const lowStock = inStock && product.stock <= 10;
 
   const handleAdd = async () => {
     if (!user) {
@@ -32,9 +35,11 @@ function ProductCard({ product }) {
   };
 
   return (
-    <article className="product-card">
-      <div className="product-card__thumb" aria-hidden="true">
-        {product.name.charAt(0)}
+    <article className={`product-card${inStock ? '' : ' is-sold-out'}`}>
+      <div className="product-card__media">
+        <ProductImage src={product.image_url} name={product.name} className="product-card__image" />
+        {lowStock && <span className="product-card__badge">Low stock</span>}
+        {!inStock && <span className="product-card__badge product-card__badge--muted">Sold out</span>}
       </div>
       <div className="product-card__body">
         <h3 className="product-card__name">{product.name}</h3>
@@ -47,10 +52,11 @@ function ProductCard({ product }) {
         </div>
         <button
           type="button"
-          className="product-card__add"
+          className={`product-card__add${status === 'added' ? ' is-added' : ''}`}
           onClick={handleAdd}
           disabled={!inStock || status === 'adding'}
         >
+          {status !== 'added' && <BagIcon size={18} />}
           {status === 'added' ? 'Added ✓' : 'Add to cart'}
         </button>
         {error && <p className="product-card__error" role="alert">{error}</p>}
@@ -66,6 +72,7 @@ ProductCard.propTypes = {
     description: PropTypes.string,
     price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     stock: PropTypes.number.isRequired,
+    image_url: PropTypes.string,
   }).isRequired,
 };
 

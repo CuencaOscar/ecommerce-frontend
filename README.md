@@ -72,7 +72,7 @@ src/
 
 ## Roadmap
 
-Online payment and product images.
+Online payment and product detail pages.
 
 ## License
 
