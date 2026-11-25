@@ -29,11 +29,9 @@ storing data only in your browser.
 - Environment-specific configuration through `.env.development`, `.env.test` and `.env.production`
   (`REACT_APP_API_URL`).
 
-## Screenshots
+## Light and dark theme
 
 ![Catalog in light and dark theme, served by the ecommerce-backend API](docs/catalog-themes.png)
-
-![Cart and order confirmation](docs/cart-orders.png)
 
 ## Getting started
 
